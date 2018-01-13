@@ -20,10 +20,10 @@
     <title>Signin Template for Bootstrap</title>
 
     <!-- Bootstrap core CSS -->
-    <link href="/resources/bootstrap.min.css" rel="stylesheet">
+    <link href="/resources/css/bootstrap.min.css" rel="stylesheet">
 
     <!-- Custom styles for this template -->
-    <link href="/resources/signin.css" rel="stylesheet">
+    <link href="/resources/css/signin.css" rel="stylesheet">
 </head>
 
 <body>

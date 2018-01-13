@@ -18,10 +18,10 @@
     <title>Cover Template for Bootstrap</title>
 
     <!-- Bootstrap core CSS -->
-    <link href="/resources/bootstrap.min.css" rel="stylesheet">
+    <link href="/resources/css/bootstrap.min.css" rel="stylesheet">
 
     <!-- Custom styles for this template -->
-    <link href="/resources/cover.css" rel="stylesheet">
+    <link href="/resources/css/cover.css" rel="stylesheet">
 </head>
 
 <body>
@@ -47,7 +47,7 @@
                 <h1 class="cover-heading">Cover your page.</h1>
                 <p class="lead">Cover is a one-page template for building simple and beautiful home pages. Download, edit the text, and add your own fullscreen background photo to make it your own.</p>
                 <p class="lead">
-                    <a href="#" class="btn btn-lg btn-secondary">Learn more</a>
+                    <a href="#" class="btn btn-lg btn-secondary">Login</a>
                 </p>
             </main>
 
@@ -67,7 +67,7 @@
 ================================================== -->
 <!-- Placed at the end of the document so the pages load faster -->
 <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
-<script src="/resources/popper.min.js"></script>
-<script src="/resources/bootstrap.min.js"></script>
+<script src="/resources/js/popper.min.js"></script>
+<script src="/resources/js/bootstrap.min.js"></script>
 </body>
 </html>
