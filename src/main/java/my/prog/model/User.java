@@ -1,14 +1,22 @@
 package my.prog.model;
 
+import java.time.LocalDateTime;
+
 public class User {
     private Long id;
-    private String name;
+    private String firstName;
+    private String lastName;
     private String password;
+    private String email;
+    private LocalDateTime registerDate;
 
-    public User (Long id, String name, String password) {
+    public User (Long id, String firstName, String lastName, String password, String email, LocalDateTime registerDate) {
         this.id = id;
-        this.name = name;
+        this.firstName = firstName;
+        this.lastName = lastName;
         this.password = password;
+        this.email = email;
+        this.registerDate = registerDate;
     }
 
     public User () {
@@ -23,12 +31,20 @@ public class User {
         this.id = id;
     }
 
-    public String getName () {
-        return name;
+    public String getFirstName () {
+        return firstName;
     }
 
-    public void setName (String name) {
-        this.name = name;
+    public void setFirstName (String firstName) {
+        this.firstName = firstName;
+    }
+
+    public String getLastName () {
+        return lastName;
+    }
+
+    public void setLastName (String lastName) {
+        this.lastName = lastName;
     }
 
     public String getPassword () {
@@ -39,12 +55,31 @@ public class User {
         this.password = password;
     }
 
+    public String getEmail () {
+        return email;
+    }
+
+    public void setEmail (String email) {
+        this.email = email;
+    }
+
+    public LocalDateTime getRegisterDate () {
+        return registerDate;
+    }
+
+    public void setRegisterDate (LocalDateTime registerDate) {
+        this.registerDate = registerDate;
+    }
+
     @Override
     public String toString () {
         return "User{" +
                 "id=" + id +
-                ", name='" + name + '\'' +
+                ", firstName='" + firstName + '\'' +
+                ", lastName='" + lastName + '\'' +
                 ", password='" + password + '\'' +
+                ", email='" + email + '\'' +
+                ", registerDate=" + registerDate +
                 '}';
     }
 }

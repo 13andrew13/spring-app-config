@@ -2,12 +2,11 @@
 <%--
   Created by IntelliJ IDEA.
   User: andrew
-  Date: 11.01.18
-  Time: 21:17
+  Date: 13.01.18
+  Time: 11:21
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
-
 <!doctype html>
 <html lang="en">
 <head>
@@ -30,8 +29,12 @@
 
 <div class="container">
 
-    <spring:form class="form-signin" action="/login" method="post" modelAttribute="user">
+    <spring:form class="form-signin" action="/signUp" method="post" modelAttribute="user">
         <h2 class="form-signin-heading">Please sign in</h2>
+        <label for="inputEmail" class="sr-only">First name</label>
+        <spring:input type="text" id="inputFirstName" class="form-control" placeholder="First name" required="true" autofocus="true" path="firstName"/>
+        <label for="inputEmail" class="sr-only">Email address</label>
+        <spring:input type="text" id="inputLastName" class="form-control" placeholder="Last name" required="true" autofocus="true" path="lastName"/>
         <label for="inputEmail" class="sr-only">Email address</label>
         <spring:input type="email" id="inputEmail" class="form-control" placeholder="Email address" required="true" autofocus="true" path="email"/>
         <label for="inputPassword" class="sr-only">Password</label>
@@ -47,4 +50,3 @@
 </div> <!-- /container -->
 </body>
 </html>
-
