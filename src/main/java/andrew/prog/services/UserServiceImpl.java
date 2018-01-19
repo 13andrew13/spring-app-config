@@ -1,14 +1,12 @@
-package my.prog;
+package andrew.prog.services;
 
-import my.prog.dao.UserDao;
-import my.prog.model.User;
+import andrew.prog.dao.UserDao;
+import andrew.prog.model.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 
-import java.time.LocalDate;
 import java.time.LocalDateTime;
-import java.time.LocalTime;
 
 @Service
 public class UserServiceImpl implements UserService{

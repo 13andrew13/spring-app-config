@@ -1,6 +1,6 @@
-package my.prog.dao;
+package andrew.prog.dao;
 
-import my.prog.model.User;
+import andrew.prog.model.User;
 
 public interface UserDao {
     User addUser (User user);

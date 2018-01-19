@@ -1,4 +1,4 @@
-package my.prog.model;
+package andrew.prog.model;
 
 import java.time.LocalDateTime;
 
@@ -10,8 +10,8 @@ public class User {
     private String email;
     private LocalDateTime registerDate;
 
-    public User (Long id, String firstName, String lastName, String password, String email, LocalDateTime registerDate) {
-        this.id = id;
+    public User ( String firstName, String lastName, String password, String email, LocalDateTime registerDate) {
+
         this.firstName = firstName;
         this.lastName = lastName;
         this.password = password;

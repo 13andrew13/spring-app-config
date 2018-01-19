@@ -1,10 +1,15 @@
-package my.prog.controllers;
+package andrew.prog.controllers;
 
-import com.sun.org.apache.regexp.internal.RE;
-import my.prog.UserService;
-import my.prog.model.User;
+import andrew.prog.services.UserService;
+import andrew.prog.model.User;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.social.connect.ConnectionRepository;
+import org.springframework.social.facebook.api.Facebook;
+import org.springframework.social.facebook.api.PagedList;
+import org.springframework.social.facebook.api.Post;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -12,6 +17,10 @@ import org.springframework.web.servlet.ModelAndView;
 
 @Controller
 public class UserController {
+    @Autowired
+    private Facebook facebook;
+    @Autowired
+    private ConnectionRepository connectionRepository;
     @Autowired
     UserService userService;
     @RequestMapping (value = "/login",method = RequestMethod.GET)
@@ -38,6 +47,10 @@ public class UserController {
         vm.setViewName ("welcome");
         vm.addObject ("user",userService.addUser (user));
         return vm;
+    }
+    @GetMapping("/facebook")
+    public String helloFacebook() {
+        return "social";
     }
 
 }
