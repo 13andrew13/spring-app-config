@@ -1,25 +1,24 @@
 package andrew.prog.configuration;
 
-import andrew.prog.model.User;
-import andrew.prog.services.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.*;
 import org.springframework.core.env.Environment;
-import org.springframework.security.crypto.encrypt.Encryptors;
+
 import org.springframework.social.UserIdSource;
 import org.springframework.social.config.annotation.ConnectionFactoryConfigurer;
 import org.springframework.social.config.annotation.EnableSocial;
 import org.springframework.social.config.annotation.SocialConfigurer;
 import org.springframework.social.connect.*;
-import org.springframework.social.connect.jdbc.JdbcUsersConnectionRepository;
+
+import org.springframework.social.connect.mem.InMemoryUsersConnectionRepository;
 import org.springframework.social.connect.web.ConnectController;
 import org.springframework.social.facebook.api.Facebook;
 import org.springframework.social.facebook.api.impl.FacebookTemplate;
 import org.springframework.social.facebook.connect.FacebookConnectionFactory;
-import org.springframework.social.security.AuthenticationNameUserIdSource;
+
 import javax.sql.DataSource;
-import java.util.concurrent.atomic.AtomicLong;
+
 
 @Configuration
 @EnableSocial
@@ -46,19 +45,7 @@ public class SocialConfig implements SocialConfigurer {
 
     @Override
     public UsersConnectionRepository getUsersConnectionRepository (ConnectionFactoryLocator connectionFactoryLocator) {
-        JdbcUsersConnectionRepository repository = new JdbcUsersConnectionRepository(dataSource, connectionFactoryLocator, Encryptors.noOpText());
-        repository.setConnectionSignUp (new ConnectionSignUp () {
-            @Autowired
-            UserService service;
-            @Override
-            public String execute (Connection<?> connection) {
-                User user = new User();
-                user.setFirstName (connection.getDisplayName ());
-                user.setPassword("12431");
-                //service.addUser (user);
-                return "social";
-            }
-        });
+        UsersConnectionRepository repository = new InMemoryUsersConnectionRepository (connectionFactoryLocator);
         return repository;
     }
     @Bean

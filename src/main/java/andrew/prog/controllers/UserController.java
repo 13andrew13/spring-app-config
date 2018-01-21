@@ -53,4 +53,11 @@ public class UserController {
         return "social";
     }
 
+
+
+
+    @RequestMapping("/connect/facebookConneced")
+    public String callbackfvb(){
+        return "home";
+    }
 }

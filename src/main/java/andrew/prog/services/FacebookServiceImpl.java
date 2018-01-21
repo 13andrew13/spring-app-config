@@ -15,9 +15,9 @@ public class FacebookServiceImpl implements FacebookService {
 
 
     @Override
-
     public User getUser () {
-        org.springframework.social.facebook.api.User user = facebookTemplate.userOperations ().getUserProfile ();
+        String fields[] = {"email","first_name","last_name"};
+        org.springframework.social.facebook.api.User user = facebookTemplate.fetchObject ("me", org.springframework.social.facebook.api.User.class,fields);
         return new User (user.getFirstName (),user.getLastName (),"12341",user.getEmail (), LocalDateTime.now ());
     }
 }
