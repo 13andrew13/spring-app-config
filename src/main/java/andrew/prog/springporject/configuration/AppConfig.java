@@ -1,8 +1,7 @@
-package andrew.prog.configuration;
+package andrew.prog.springporject.configuration;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
-import org.springframework.context.annotation.PropertySource;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.datasource.DriverManagerDataSource;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
@@ -15,7 +14,7 @@ import javax.sql.DataSource;
 
 @EnableWebMvc
 @Configuration
-@ComponentScan(basePackages = "andrew.prog")
+@ComponentScan(basePackages = "andrew.prog.springporject")
 
 public class AppConfig extends WebMvcConfigurerAdapter {
 
@@ -31,12 +30,12 @@ public class AppConfig extends WebMvcConfigurerAdapter {
         registry.addResourceHandler("/resources/**").addResourceLocations("/resources/");
          }
 
-    @Bean
+   /* @Bean
     public JdbcTemplate jdbcTemplate(DataSource dataSource){
         JdbcTemplate jdbcTemplate = new JdbcTemplate ();
         jdbcTemplate.setDataSource (dataSource);
         return jdbcTemplate;
-    }
+    }*/
 
     @Bean
     public DataSource dataSource(){

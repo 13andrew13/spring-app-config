@@ -1,14 +1,38 @@
-package andrew.prog.model;
+package andrew.prog.springporject.model;
 
+import javax.persistence.*;
+import java.io.Serializable;
 import java.time.LocalDateTime;
+import java.util.ArrayList;
+import java.util.List;
 
-public class User {
+@Entity
+@Table(name = "USERS")
+
+public class User implements Serializable{
+    @Id
+    @SequenceGenerator (name = "MAIN_SEQ")
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+
+    @Column(name = "FIRST_NAME")
     private String firstName;
+
+    @Column(name = "LAST_NAME")
     private String lastName;
+
+    @Column(name = "PASSWORD")
     private String password;
+
+    @Column(name = "EMAIL")
     private String email;
+
+    @Column(name = "REGISTER_DATE")
     private LocalDateTime registerDate;
+
+    @OneToMany(cascade = CascadeType.ALL,fetch = FetchType.LAZY,mappedBy = "user")
+    private List<Order> orders = new ArrayList<> ();
+
 
     public User ( String firstName, String lastName, String password, String email, LocalDateTime registerDate) {
 
@@ -81,5 +105,13 @@ public class User {
                 ", email='" + email + '\'' +
                 ", registerDate=" + registerDate +
                 '}';
+    }
+
+    public List<Order> getOrders () {
+        return orders;
+    }
+    public void add(Order order){
+        order.setUser(this);
+        orders.add (order);
     }
 }

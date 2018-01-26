@@ -1,4 +1,4 @@
-package andrew.prog.configuration;
+package andrew.prog.springporject.configuration;
 
 import org.springframework.web.WebApplicationInitializer;
 import org.springframework.web.context.support.AnnotationConfigWebApplicationContext;

@@ -1,4 +1,4 @@
-package andrew.prog.configuration;
+package andrew.prog.springporject.configuration;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
@@ -12,7 +12,6 @@ import org.springframework.social.config.annotation.SocialConfigurer;
 import org.springframework.social.connect.*;
 
 import org.springframework.social.connect.mem.InMemoryUsersConnectionRepository;
-import org.springframework.social.connect.web.ConnectController;
 import org.springframework.social.facebook.api.Facebook;
 import org.springframework.social.facebook.api.impl.FacebookTemplate;
 import org.springframework.social.facebook.connect.FacebookConnectionFactory;
@@ -25,12 +24,9 @@ import javax.sql.DataSource;
 @PropertySource ("classpath:application.properties")
 public class SocialConfig implements SocialConfigurer {
 
-    DataSource dataSource;
 
-    @Autowired
-    public SocialConfig (@Value ("#{dataSource}") DataSource dataSource) {
-        this.dataSource = dataSource;
-    }
+
+
 
     @Override
     public void addConnectionFactories (ConnectionFactoryConfigurer connectionFactoryConfigurer, Environment environment) {
@@ -55,16 +51,6 @@ public class SocialConfig implements SocialConfigurer {
         return connection != null ? connection.getApi() : null;
     }
 
-
-    @Bean
-    public Facebook facebookTemplate(Environment environment){
-        return new FacebookTemplate (environment.getProperty ("spring.social.facebook.appId"),
-                environment.getProperty ("spring.social.facebook.appSecret"));
-    }
-    @Bean
-    public ConnectController connectController(ConnectionFactoryLocator factoryLocator,ConnectionRepository connectionRepository){
-        return new ConnectController (factoryLocator,connectionRepository);
-    }
 
 
 }

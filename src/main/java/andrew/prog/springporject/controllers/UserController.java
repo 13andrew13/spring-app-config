@@ -1,14 +1,12 @@
-package andrew.prog.controllers;
+package andrew.prog.springporject.controllers;
 
-import andrew.prog.services.UserService;
-import andrew.prog.model.User;
+import andrew.prog.springporject.services.FacebookService;
+import andrew.prog.springporject.services.UserService;
+import andrew.prog.springporject.model.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.social.connect.ConnectionRepository;
 import org.springframework.social.facebook.api.Facebook;
-import org.springframework.social.facebook.api.PagedList;
-import org.springframework.social.facebook.api.Post;
 import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -23,6 +21,8 @@ public class UserController {
     private ConnectionRepository connectionRepository;
     @Autowired
     UserService userService;
+    @Autowired
+    FacebookService facebookService;
     @RequestMapping (value = "/login",method = RequestMethod.GET)
     public ModelAndView login(ModelAndView vm){
         vm.setViewName ("login");
@@ -52,12 +52,12 @@ public class UserController {
     public String helloFacebook() {
         return "social";
     }
-
-
-
-
-    @RequestMapping("/connect/facebookConneced")
-    public String callbackfvb(){
-        return "home";
+    @GetMapping("/registerFacebook")
+    public ModelAndView registerFacebook(ModelAndView vm){
+        User user = facebookService.getUser ();
+        userService.addUser (user);
+        vm.setViewName ("welcome");
+        vm.addObject ("user",user);
+        return vm;
     }
 }

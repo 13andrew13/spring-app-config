@@ -1,9 +1,8 @@
-package andrew.prog.services;
+package andrew.prog.springporject.services;
 
-import andrew.prog.model.User;
+import andrew.prog.springporject.model.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.social.facebook.api.Facebook;
-import org.springframework.social.facebook.api.impl.FacebookTemplate;
 import org.springframework.stereotype.Service;
 
 import java.time.LocalDateTime;
