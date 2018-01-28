@@ -72,6 +72,12 @@
             <artifactId>spring-orm</artifactId>
             <version>4.3.13.RELEASE</version>
         </dependency>
+        <dependency>
+            <groupId>org.projectlombok</groupId>
+            <artifactId>lombok</artifactId>
+            <version>1.16.20</version>
+        </dependency>
+
 
 
 
